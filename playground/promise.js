@@ -10,10 +10,13 @@ var asyncAdd = (a, b) => {
     });
 };
 
-asyncAdd(12, 24).then((result) => {
+asyncAdd(12, '24').then((result) => {
     console.log('Result: ', result);
-}, (errorMessage) => {
-    console.log(errorMessage)
+    return asyncAdd(result, 34);
+}).then((res) => {
+    console.log('Second result : ' , res);
+}).catch((errorMessage) => {
+    console.log(errorMessage);
 });
 
 // var somePromise = new Promise((resolve, reject) => {
